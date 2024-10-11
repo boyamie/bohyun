@@ -49,16 +49,43 @@ Objbect Detection 작업에서 Data Augmentation을 수행하기 위해 **Contro
 2. Prompt Constructor
 3. Controllable Diffusion Model
 4. Post Filter with Category-Calibrated CLIP Rank
-### 2.1. Prior Extractor (비주얼 프라이어 추출기)
+### 2.1. Prior Extractor 
+	(비주얼 프라이어 추출기)
 - **Visual Prior Generator**는 훈련에 사용될 이미지-주석 쌍에서 M개의 이미지를 샘플링하고, 일반적인 데이터 변환을 적용하여 "비주얼 프라이어-주석 쌍"을 생성한다. 기본적으로 HED 에지 검출기(HED edge detector)를 사용하며, 다른 비주얼 프라이어 추출기도 논의된다(예: Canny 에지 검출기, 세그멘테이션 마스크).
 
-### 2.2. Prompt Construction (프롬프트 생성)
+### 2.2. Prompt Construction 
+	(프롬프트 생성)
 - 주석 정보에 따라 프롬프트를 생성하며, 기본 전략은 주석에 있는 모든 카테고리 라벨을 하나의 문장으로 결합하는 것이다. 여러 가지 다른 전략도 실험하였으나, 기본 전략이 가장 효과적임이 밝혀졌다.
 
-### 2.3. Controllable Diffusion Model (제어 가능한 확산 모델)
+### 2.3. Controllable Diffusion Model 
+	(제어 가능한 확산 모델)
 - 확산 모델을 사용하여 주석된 이미지-프롬프트 쌍으로부터 합성 이미지를 생성한다. 미리 훈련된 모델의 일부 파라미터는 고정되고, 다른 부분은 업데이트된다. 이 과정에서 생성된 이미지는 주석과 일치하는 구조를 가지며, 결과적으로 고품질의 바운딩 박스가 포함된 합성 이미지-주석 쌍이 생성된다.
 
 ### 2.4. Post Filter with Category-Calibrated CLIP Rank 
 	카테고리 보정된 CLIP 점수를 사용한 후처리 필터
 - 생성된 이미지 내에서 바운딩 박스 안의 객체가 프롬프트와 일치하는지 확인하기 위해 CLIP 점수를 계산한다. 그런 다음 각 주석에 대해 유사도 점수를 수집하고, 이를 기반으로 데이터의 품질을 평가하여 상위 품질의 합성 데이터를 필터링한다.
 
+![](https://i.imgur.com/53VEti3.png)Table 1.
+## Main Results
+### 3.1. 실험 설정
+기본 실험 설정
+- **합성 데이터 생성 필터링 비율**(γ): 30%
+- **증강 비율**(α): 1
+- **합성 이미지 크기**: 512x512
+- **샘플링 방식**: DDIM (50 스텝)
+- **가이던스 스케일**: 9.0
+- **비주얼 프라이어**: HED 엣지 디텍터
+
+탐지기 별로 사용된 최적화 방법
+- **YOLOX-S**: SGD 옵티마이저, 배치 크기 64, 학습률 1e-2, 모멘텀 0.9, weight decay 5e-4, 사전 훈련은 200 에포크 진행.
+- **DINO-SwinL**: AdamW 옵티마이저, 배치 크기 16, 학습률 1e-4, weight decay 1e-4, 사전 훈련은 36 에포크.
+
+평가
+**COCO-standard mAP**와 **VOC-standard AP50**으로 진행되었으며, 일부 실험에서는 **AP75**, **mAP-small**, **mAP-medium**, **mAP-large**도 보충 자료로 포함되었다.
+
+### 3.2. Few Shot 실험
+**Few-Shot Object Detection (FSOD)** 설정에서 제안된 데이터 증강 파이프라인을 COCO 데이터셋에서 평가했다. FSOD는 소량의 라벨이 있는 데이터로 객체를 탐지하는 어려운 문제를 다루며, 새로운 객체 클래스에 대한 소수의 예시만으로 일반화해야 하는 시나리오를 다룬다.
+
+COCO 데이터셋의 80개 객체 카테고리 중 60개는 베이스 카테고리로, 나머지 20개는 새로운 카테고리로 나누어 베이스 카테고리 데이터로 사전 훈련을 진행하고, 새로운 카테고리에서 K-shot (5, 10, 30) 데이터를 샘플링하여 실험을 진행했다.
+### 결과 분석
+**Table 1**에서 볼 수 있듯이, YOLOX-S와 DINO-SwinL 탐지기를 사용하여 다양한 shot에서 제안된 방법과 기존 방법을 비교했다. 특히 SDInpaint 및 Paint-by-Example (PbE) 방법과 비교했을 때, shot 수가 증가할수록 인페인팅 방법의 개선 효과가 크게 줄어들었다는 점을 발견했다. 이는 적은 데이터에서는 바운딩 박스가 약간 느슨하더라도 합성 객체가 모델의 성능을 향상시킬 수 있지만, 실제 데이터가 충분히 많아지면 정확한 바운딩 박스가 중요한 요소가 된다는 것을 의미한다.
