@@ -2,6 +2,7 @@
 {"dg-publish":true,"permalink":"/paper-review/data-augmentation-for-object-detection-via-controllable-diffusion-models/"}
 ---
 
+- [x] dp-home
 Objbect Detection 작업에서 Data Augmentation을 수행하기 위해 **Controllable Diffusion Models**을 사용한다.
 특히, 객체 탐지는 **expensive bounding box annotations**이 필요한데, 이 주석 작업은 시간과 비용이 많이 든다. 
 이를 해결하기 위해 이 논문은 **diffusion model**과 **CLIP**을 활용하여 **synthetic data**를 생성하고, 그 데이터를 통해 성능을 향상시키는 방법을 제안한다.
@@ -21,4 +22,4 @@ Objbect Detection 작업에서 Data Augmentation을 수행하기 위해 **Contro
 
 **객체 탐지(Object Detection)** 모델이 최첨단 성능을 발휘하기 위해서는 **대규모의 다양하고 주석된 데이터셋**이 필요하다. 객체 탐지는 단순히 이미지 분류를 넘어서 **정확한 바운딩 박스(bounding box)** 주석이 필요하다.
 
-![](https://i.imgur.com/HWnOvce.png)
+![Figure 1.](https://i.imgur.com/HWnOvce.png) Figure 1.
