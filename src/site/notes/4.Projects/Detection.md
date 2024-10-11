@@ -14,8 +14,7 @@
 # Semantic Distribution Bias
 데이터셋에 특정 라벨(배경)이 많은 경우 불균형을 해결하기 위한 방법
 
-
-# # Knowledge Distillation
+# Knowledge Distillation
 MMDetection은 다양한 객체 탐지 모델을 쉽게 구성하고 실행할 수 있는 프레임워크입니다. MMDetection에서 논문 내용을 적용하기 위해서는 **config 파일 수정**과 **필요한 커스텀 코드 추가**가 핵심입니다. 논문에서 제안한 방법을 적용하려면 다음과 같은 부분을 수정해야 합니다.
 ### 1. **카테고리 친화도 매트릭스(Category Affinity Matrix)**
    - **Dataset Pipeline 수정**: 카테고리 친화도 매트릭스를 사용하여 다양한 카테고리 간의 관계를 반영하려면 데이터 증강 파이프라인에서 이를 반영해야 합니다. MMDetection의 `data` 섹션에서 데이터 증강을 담당하는 부분에 새로운 증강 방식(친화도 기반 이미지 변환)을 추가할 수 있습니다.
