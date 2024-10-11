@@ -2,7 +2,6 @@
 {"dg-publish":true,"permalink":"/paper-review/data-augmentation-for-object-detection-via-controllable-diffusion-models/"}
 ---
 
-- [x] dp-home
 
 ## abstract
 
