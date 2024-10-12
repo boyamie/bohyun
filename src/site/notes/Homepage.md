@@ -20,7 +20,5 @@ Giving robots the ability to see the world in 3D is crucial task for AI! 😎
 <div align="center">
 <a href="https://github.com/boyamie" target="_blank"><img src="https://img.shields.io/badge/boyamie-181717?style=for-the-badge&logo=GitHub&logoColor=white"/></a>
 </div>
-1950's Evangelion- Sora AI
-[![](https://i.imgur.com/ORHywMb.png)](https://github.com/boyamie)
 
 
