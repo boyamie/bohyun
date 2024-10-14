@@ -10,12 +10,12 @@
 ### 1. **DETR과 Cascade R-CNN의 차이점**
 - **Cascade R-CNN**은 **2-Stage Detector**이다. 
 	첫 번째 단계에서 **Region Proposal Network(RPN)** 을 통해 관심 영역(Region of Interest, RoI)을 찾아내고, 두 번째 단계에서 RoI를 이용해 객체를 분류하고 박스를 조정한다.
-  - 이 과정에서 데이터 처리 파이프라인에서의 이미지 변환이 잘 정의되어 있고, **`RandomFlip`** 같은 변환이 문제가 되지 않았다.
+	이 과정에서 데이터 처리 파이프라인에서의 이미지 변환이 잘 정의되어 있고, **`RandomFlip`** 같은 변환이 문제가 되지 않았다.
 
 - **DETR**(Detection Transformer)은 **End-to-End** 방식의 **1-Stage Detector**로, **Transformer** 구조를 기반으로 한다.(RPN)이 필요없다.
-  - 이 모델에서는 이미지의 크기 조정(`img_scale`)이 직접적으로 이미지 특징 추출과 학습에 중요하다.
-  - DETR의 경우 `Resize`는 이미지의 크기를 조정하는 단계에서만 사용되어야 하며, **`RandomFlip`** 같은 이미지 변환에서는 `img_scale`이 필요없다.
-### 3. **왜 DETR에서는 문제가 발생하는가?**
+	이 모델에서는 이미지의 크기 조정(`img_scale`)이 직접적으로 이미지 특징 추출과 학습에 중요하다.
+	DETR의 경우 `Resize`는 이미지의 크기를 조정하는 단계에서만 사용되어야 하며, **`RandomFlip`** 같은 이미지 변환에서는 `img_scale`이 필요없다.
+### 2. **왜 DETR에서는 Error가 발생하는가?**
 **Cascade R-CNN**의 파이프라인에서는 **`RandomFlip`** 과 **`Resize`** 가 별도의 역할을 하며, 이러한 변환이 이미지 크기나 비율과 관련된 오류를 발생시키지 않았다. 
 **`RandomFlip`** 은 단순히 이미지를 좌우로 뒤집는 변환일 뿐, 이미지 크기를 다루지 않았다.
 
