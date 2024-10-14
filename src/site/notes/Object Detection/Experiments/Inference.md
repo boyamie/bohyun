@@ -12,8 +12,6 @@ MMDetection 프레임워크를 사용하여 모델의 체크포인트에서 infe
 3. **파일 경로 설정 및 CSV 파일 생성**:
    `submission.csv` 파일의 경로를 올바르게 설정하고, 그 파일에 정확한 형식으로 데이터를 기록
 
-다음은 기존 코드를 기반으로 개선된 버전입니다:
-
 ```python
 import mmcv
 from mmcv import Config
