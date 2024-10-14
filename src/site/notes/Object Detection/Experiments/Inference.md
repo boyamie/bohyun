@@ -2,6 +2,9 @@
 {"dg-publish":true,"permalink":"/object-detection/experiments/inference/"}
 ---
 
+```python
+python inference.py --config /data/ephemeral/home/mmdetection/configs/cascade_rcnn/cascade_rcnn_x101_64x4d_fpn_20e_coco.py --epoch latest
+```
 MMDetection 프레임워크를 사용하여 모델의 체크포인트에서 inference 실행 
 그 결과를 Pascal VOC 형식의 `submission.csv` 파일로 저장하는 구조 
 
@@ -125,5 +128,8 @@ atss 모델을 실행한 예시입니다. 돌리신 모델로 적절히 수정�
 python inference.py --config /data/ephemeral/home/mmdetection/configs/atss/atss_r101_fpn_1x_coco.py --epoch latest
    ```
 2. cfg.work_dir = '/data/ephemeral/home/output/mmdetection/2024-10-11_18-44-24_d215e' 
-4. `submission.csv` 파일이 `cfg.work_dir` 경로에 생성됩니다. Pascal VOC 형식의 추론 결과를 `submission.csv`로 저장
+4. `submission.csv` 파일이 `cfg.work_dir` 경로에 생성됩니다. (Pascal VOC 형식의 추론 결과를 `submission.csv`로 저장)
 
+   ```bash
+python inference.py --config /data/ephemeral/home/mmdetection/configs/cascade_rcnn/cascade_rcnn_x101_64x4d_fpn_20e_coco.py --epoch latest
+   ```
