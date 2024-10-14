@@ -2,18 +2,6 @@
 {"dg-publish":true,"permalink":"/object-detection/hypothesis/kd/"}
 ---
 
-1) EDA 
-   object개수 40쯤에서 outlier처리
-2) 파이프라인 구축 - 라이브러리, 개인코드, 공유된코드, 베이스라인코드구축
-   [모델 찾기]
-   모델 고르고 papers with code SOTA모델 중에서 mmdetection이나 detectron2에 없는거
-   모델이름+선정이유
-3) Validation set 찾기
-4) 성능을 올리기 위한 시도
-
-# Semantic Distribution Bias
-데이터셋에 특정 라벨(배경)이 많은 경우 불균형을 해결하기 위한 방법
-
 # Knowledge Distillation
 MMDetection은 다양한 객체 탐지 모델을 쉽게 구성하고 실행할 수 있는 프레임워크입니다. MMDetection에서 논문 내용을 적용하기 위해서는 **config 파일 수정**과 **필요한 커스텀 코드 추가**가 핵심입니다. 논문에서 제안한 방법을 적용하려면 다음과 같은 부분을 수정해야 합니다.
 ### 1. **카테고리 친화도 매트릭스(Category Affinity Matrix)**
