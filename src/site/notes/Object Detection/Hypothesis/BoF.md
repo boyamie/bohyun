@@ -66,7 +66,7 @@ Bounding Box Regression
      ```
 
 3. **Data Augmentation**:
-   - Config 파일에서 데이터 전처리 파이프라인을 설정할 수 있습니다. 예를 들어:
+   - Config 파일에서 데이터 전처리 파이프라인을 설정할 수 있습니다. 
      ```python
      train_pipeline = [
          dict(type='Resize', img_scale=(1333, 800), keep_ratio=True),
