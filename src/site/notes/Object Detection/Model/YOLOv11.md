@@ -146,21 +146,21 @@ MMDetection에서는 `single_gpu_test`와 같은 유틸리티 함수가 제공�
 
 아래는 YOLOv11의 추론 결과를 CSV 파일로 저장하는 Python 코드 예시입니다.
 
-### 1. `detect.py` (추론 결과 CSV로 저장)
-YOLOv11을 사용해 추론을 수행하고 그 결과를 CSV 파일로 저장
-### 2. 코드 설명
+YOLOv11은 기존의 YOLO 기반 모델과 다를 수 있지만, YOLO 스타일 모델에서는 기본적으로 `inference.py` 스크립트를 사용하여 훈련된 모델을 불러오고 이미지나 비디오에서 객체를 감지한 후 결과를 저장할 수 있습니다. 
 
-- `detect_and_save_csv`: 이 함수는 모델을 불러오고 이미지를 로드한 후 추론을 수행하고 결과를 CSV 파일로 저장
-- 결과 형식 결과는 이미지 파일 이름, 클래스, 신뢰도, 중심 좌표(x, y) 및 객체의 너비, 높이를 포함하는 CSV 파일로 저장
-- 파라미터
-    - `weights`: 추론에 사용할 YOLO 모델의 가중치 파일 경로.
-    - `source`: 추론할 이미지나 비디오 파일의 경로.
-    - `img_size`: 이미지 크기.
-    - `conf_thres`: 객체 검출의 confidence threshold.
-    - `iou_thres`: NMS(Non-Maximum Suppression)를 적용할 때의 IoU threshold.
-    - `save_csv_path`: 결과를 저장할 CSV 파일 경로.
+다음은 YOLOv11을 위한 `inference.py` 스크립트 예시로, 모델을 사용하여 테스트 이미지를 감지하고 그 결과를 CSV 파일로 저장하는 코드입니다. 이 코드는 기본적으로 YOLOv5의 흐름을 기반으로 하지만, YOLOv11의 구조에 맞게 수정하였습니다.
 
-명령어
-```bash
-python detect.py --weights weights/best.pt --source data/test --save-csv-path output.csv
-```
+### `inference.py` (YOLOv11 기반)
+### 주요 포인트:
+1. **모델 로드**: `torch.load`를 사용하여 YOLOv11 모델을 로드합니다. YOLOv11에 맞는 모델 경로 및 구조를 사용합니다.
+2. **데이터셋 로드**: `LoadImages`는 이미지 데이터를 로드하는 역할을 하며, 이미지나 비디오를 불러옵니다.
+3. **추론 및 NMS 적용**: 모델 추론 결과에 대해 `non_max_suppression`을 적용하여 중복된 감지 결과를 제거합니다.
+4. **결과 저장**: 추론 결과를 `pandas.DataFrame`으로 만들어 CSV 파일로 저장합니다.
+
+### 사용 방법:
+1. 터미널에서 아래 명령어를 실행하여 모델을 사용해 객체를 감지하고 결과를 CSV 파일로 저장합니다.
+   ```bash
+   python detect.py --weights weights/best.pt --source data/test --save-csv-path output.csv
+   ```
+
+이 코드에서 `models.yolo`, `utils.datasets`, `utils.general`, `utils.torch_utils`가 YOLOv11에서 적합한지 확인한 후 경로와 모듈명을 수정하거나 해당 모듈을 사용해야 합니다.
