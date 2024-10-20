@@ -3,10 +3,10 @@
 ---
 
 Hi there! I'm Bohyun Kim.
-
+![](https://i.imgur.com/QgQEYB7.png)
 I love AI, especially **depth estimation**. 
 Giving robots the ability to see the world in 3D is crucial task for AI! 😎
-
+![](https://i.imgur.com/WE5pq00.png)
 <div align="center">
 	    <br>
   <a href="https://boyamie.github.io/"><img src="https://img.shields.io/badge/NaverBoostcampAITechDiary-03C75A?style=for-the-badge&logo=Naver&logoColor=white" /></a>
