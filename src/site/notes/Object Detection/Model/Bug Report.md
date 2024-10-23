@@ -36,19 +36,5 @@ ground-truth에 10개 클래스 외의 라벨이 포함되지 않도록 수정�
 
 ![](https://i.imgur.com/uV4VQCs.png)
 
-TensorBoard: Start with 'tensorboard --logdir runs/detect/train', view at http://localhost:6006/
-Freezing layer 'model.23.dfl.conv.weight'
-AMP: running Automatic Mixed Precision (AMP) checks with YOLO11n...
-AMP: checks passed ✅
-train: Scanning /data/ephemeral/home/dataset/train_split.cache... 3906 images, 0 backgrounds, 0 corru
-train: WARNING ⚠️ /data/ephemeral/home/dataset/train_split/4041.jpg: 1 duplicate labels removed
-albumentations: Blur(p=0.01, blur_limit=(3, 7)), MedianBlur(p=0.01, blur_limit=(3, 7)), ToGray(p=0.01), CLAHE(p=0.01, clip_limit=(1, 4.0), tile_grid_size=(8, 8))
-val: Scanning /data/ephemeral/home/dataset/val_split.cache... 977 images, 0 backgrounds, 0 corrupt: 1
-Plotting labels to runs/detect/train/labels.jpg... 
-optimizer: 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
-optimizer: AdamW(lr=0.000714, momentum=0.9) with parameter groups 81 weight(decay=0.0), 88 weight(decay=0.0005), 87 bias(decay=0.0)
-TensorBoard: model graph visualization added ✅
-Image sizes 512 train, 512 val
-Using 8 dataloader workers
-Logging results to runs/detect/train
-Starting training for 100 epochs...
+#### 문제상황
+Pascal VOC형태로 바꿀 때, xmin,ymin,xmax,ymax형태로 저장해야되는데 xyxy는 우
