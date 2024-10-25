@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/mllm/llm/"}
+{"dg-publish":true,"permalink":"/mllm/llm/","tags":["mentoring"]}
 ---
 
 #### 1. 기초 개념 및 초기 모델들
