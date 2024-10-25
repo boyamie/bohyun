@@ -42,7 +42,8 @@ ultralytics를 활용해서 validation에선 예측값과 실제 라벨을 비�
 3번 **Controllable Diffusion Model** 은 주석된 이미지-프롬프트 쌍으로부터 합성 이미지를 생성합니다. 
 ![](https://i.imgur.com/zk40f2i.png)
 ![](https://i.imgur.com/mNT8xgz.png)
-생성 이미지 크기를 조정했더니 고품질의 이미지가 생성되는 것을 확인했습니다.
+생성 이미지 크기를 조정했더니 1024의 visual prior가 더 상세하게 생성되는 것을 확인했습니다.
+1024의 이미지는 글씨까지 인식하는 모습을 보입니다.
 ![](https://i.imgur.com/Ujmct8j.png)
 그러나 contrallable diffusion model은 small, medium사이즈의 object 생성에는 어려움을 겪었습니다.
 그 결과 diffusion image를 추가해서 train을 하면 성능이 하락되는 것을 확인했습니다.

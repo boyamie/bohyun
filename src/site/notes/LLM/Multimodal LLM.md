@@ -2,7 +2,6 @@
 {"dg-publish":true,"permalink":"/llm/multimodal-llm/"}
 ---
 
-
 ![](https://i.imgur.com/m82BKPF.png)
 ![](https://i.imgur.com/LRHUmFD.png)
 ![](https://i.imgur.com/WT9owyj.png)
