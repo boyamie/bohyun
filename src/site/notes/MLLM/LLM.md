@@ -56,3 +56,18 @@ large scale language models..
 Hallucination과 context understanding문제가 있다.
 ![](https://i.imgur.com/81KZamZ.png)
 ![](https://i.imgur.com/yPMm8xz.png)
+![](https://i.imgur.com/jDk5dFe.png)
+![](https://i.imgur.com/l733Gcy.png)
+![](https://i.imgur.com/xK1yTiy.png)
+dataset을 먼저 모은다.
+다양하게 답변을 LLM을 가지고 뽑는다.
+Human anntator한테 보여주고 점수를 매기게 한다.
+Lank도 자연스럽게 매겨진다.
+수집한 데이터로 reward model도 학습을 한다.
+![](https://i.imgur.com/eqNDeDP.png)
+![](https://i.imgur.com/QDDbiI7.png)
+![](https://i.imgur.com/OIwn9f2.png)
+Policy Model이 LLM이라고 생각하면 되고 Reward Model을 태워서 점수가 쭉 나오면 점수를 쪼갠 다음 거기서 다시 preference 데이터가 나오는 과정을 반복한다.
+앞의 DPO과정을 온라인으로 옮겨서 loop를 돌린다고 생각하면 된다
+![](https://i.imgur.com/mybsryN.png)
+
