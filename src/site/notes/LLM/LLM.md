@@ -71,3 +71,4 @@ Humun alignment 자체는 높은 가능성을 보여왔다.
 ![](https://i.imgur.com/dKYu7ya.png)
 ![](https://i.imgur.com/PNRg3o6.png)
 ![](https://i.imgur.com/7tgRVEx.png)
+![](https://i.imgur.com/L1Iz9Yl.png)
