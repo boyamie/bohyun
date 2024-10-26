@@ -2,7 +2,8 @@
 {"dg-publish":true,"permalink":"/3-d/ne-rf/"}
 ---
 
-Representing Scenes as Neural Radiance Fields for View Synthesis
+[Representing Scenes as Neural Radiance Fields for View Synthesis](https://arxiv.org/abs/2003.08934)
+[Implement](https://www.matthewtancik.com/nerf)
 5D scene representation기반 + parameter 조절 + Volume Rendering -> View Synthesis
 1. 특정 시점에서 이미지를 얻는다. 
 2. object를 다양한 시점에서 바라보았을 때를 예측한다. 
@@ -49,4 +50,25 @@ C(r)도 적분이 시그마로 바뀌면서 위의 식으로 표현된다.
 ### Optimizing a Neural Radiace Field
 +Positional Encoding + Hierarchical Sampling -> NeRF Optimize -> SOTA quality
 #### Positional Encoding
+NeRF의 input은 저차원이다. high resolution image도출을 위해 input을 higher dimensional space에 mapping한다. 
+위에서 언급했던 $F=F′∘γ$로 표현해서 performance를 확장한다. γ는 R을 $R^2L$로 mapping 해주는 parameter다.
+![](https://i.imgur.com/X3eLrtU.png)
+γ(p)는 x에 속해있는 3 좌표에 대해 분해되어 사용된다. 
+이 과정은 d와도 동일하게 나타나며 L의 값은 사용자가 설정하는 값이다. 
+(논문에서는 γ(x)에 대해서는 L=10으로,γ(d)에 대해서는 L=4로 설정되었다고 한다.)
 
+Positional encoding에 대한 mapping은 Transformer에서 사용한 positional encoding과 비슷하지만 목적에서 차이가 있다. 
+Transformer의 경우는 model에게 token들의 순서에 대한 정보를 알려주지만 NeRF는 MLP가 고밀도 함수를 처리할수 있도록 input coordinate를 고차원의 공간으로 mapping하기 위해 사용된다. 
+![](https://i.imgur.com/pjRzF9b.png)
+view dependent 기법과 positional encoding 기법을 적용했을 경우와 적용하지 않았을 경우에 대한 비교 사진이다.
+### Hierarchical volume sampling
+N개의 ray로 분할 후 값을 얻어내는 rendering 기법은 비효율적이다. free space와 occluded된 부분은 결과값에 기여를 안하기 때문이다. 
+scene을 표현하기 위해 하나의 network를 사용하기보다는 coarse network와 fine network로 구분해 두 가지 network를 학습시킨다. 
+network는 coarse network에 가까우며, 주어진 coarse network의 결과에 따라 fine network의 구성이 바뀌게 된다.
+![](https://i.imgur.com/5hIUpj0.png)coarse network
+![](https://i.imgur.com/NnYKjoO.png)
+Loss function
+ w 값들 Normalizing해주면 w 값들에 대한 하나의 PDF 생긴다. 
+ PDF를 기반으로 w값이 높은 곳에 대해서 $C_f​(r)$, Fine하게 radiance의 분포를 얻게 된다. 
+ $N_c​+N_f$​개의 색 분포를 얻은 최종 Loss function식이다.
+![](https://i.imgur.com/zcDfCgY.png)
