@@ -24,3 +24,29 @@ multiview에서 consistent한 image를 생성하기 위해 density σ는 locati
 위치와 방향을 나타내는 5D 좌표(x,y,z,θ,ϕ)로부터 single volume density와 view 기반의 RGB color를 추정한다.
 #### Radiance Field
 ![](https://i.imgur.com/rhm0Vtn.png)
+point -> 다양한 ray가 지난다 -> 지나는 빛의 방향에 따라 다양한 radiance를 가진다
+다양한 radience를 distribution으로 representation : NeRF !
+(c)에 point에서 radiance distribution이 보이는데 color(radiance)
+
+### Volume Rendering with Radiance Fields
+5D NeRF
+1 scene = volume density + directional emitted radiance 로 representation
+ray의 radiance는 지나가는 scenec에 대해서 volume rendering을 통해 정해진다.
+C(r)은 ray의 예측되는 radiance다.
+![](https://i.imgur.com/XNSy5Te.png)
+r(t)=o+td
+t의 범위인 $t_n$, $t_f$ 은​ near한 곳부터 가장 far한 곳 까지 지나가는 ray의 범위다.
+
+ T(t)
+Density에 대한 constraint function
+ray가 point에 닿기 전까지 지나온 점들의 Density값을 조사해 해당 점이 최종 radiance에 영향을 끼치는 결과를 반영하기 위해 곱해주는 것 같다.
+연속적인 식은 MLP가 이산적인 결과값을 제공하고 이미지와 Voxel 역시도 이산적인 data이기 때문에 Integral 기반의 식을 사용하는데 문제가 생길 수가 있다. 그래서 식을 이산형으로 변환한다. 
+![](https://i.imgur.com/o7sVuUS.png)
+$t_n$, $t_f$ 를 N으로 나누어서 계산을 했을 때 각 $t_i​$이다.
+![](https://i.imgur.com/RvBZ3Ns.png)
+C(r)도 적분이 시그마로 바뀌면서 위의 식으로 표현된다.
+
+### Optimizing a Neural Radiace Field
++Positional Encoding + Hierarchical Sampling -> NeRF Optimize -> SOTA quality
+#### Positional Encoding
+
