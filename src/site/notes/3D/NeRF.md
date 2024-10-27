@@ -72,3 +72,24 @@ Loss function
  PDF를 기반으로 w값이 높은 곳에 대해서 $C_f​(r)$, Fine하게 radiance의 분포를 얻게 된다. 
  $N_c​+N_f$​개의 색 분포를 얻은 최종 Loss function식이다.
 ![](https://i.imgur.com/zcDfCgY.png)
+
+# NeRF on-the-go
+[NeRF On-the-go: Exploiting Uncertainty for Distractor-free NeRFs in the Wild](https://arxiv.org/abs/2405.18715)
+![](https://i.imgur.com/bsvgOXA.png)
+목표: 정적 장면에 대한 NeRF를 학습하고 장면의 모든 동적 요소(주의 분산기)를 효과적으로 제거
+불완전한 결과를 생성하는 NeRF-W및 RobustNeRF와 같은 기존 방법과 달리예측된 uncertainty 맵을 활용하여 이러한 주의 분산기를 효과적으로 제거한다. 
+결과: 동적 장면에 대해 적응력이 강한 새로운 view 합성
+
+Novel View Synthesis (NVS):이전에 관찰되지 않은 관점에서 장면을 렌더링하는 문제를 다룬다.
+vanilla NeRF는 움직이는 물체, 그림자 또는 기타 동적 요소와 같은 주의를 산만하게 하는 요소 없이 capture porcess동안 장면이 완전히 정적인 상태로 유지되어야 한다는 가정 하에 작동하지만
+NeRF On-the-go
+
+ NeRF On-the-go: 효과적인 주의 분산자 제거를 위해 설계된 다용도 플러그 앤 플레이 모듈이다. 
+캡처한 이미지에서 신속한 NeRF 학습을 가능하게 한다.
+
+![](https://i.imgur.com/8MYiWOF.png)
+1. 사전 학습된 DINOv2 네트워크는 포즈를 취한 이미지에서 피쳐 맵을 추출
+2. ray를 선택하는 확장 패치 샘플러를 사용. 
+3. 불확실성 MLP G는 이러한 ray의 DINOv2 피쳐를 입력으로 사용하여 불확실성 β(r)를 생성 
+4. 세 가지 loss(오른쪽)가 G 및 NeRF 모델을 최적화하는 데 사용 
+5. 학습 프로세스는 색상이 있는 점선으로 표시된 대로 경사 흐름을 분리함으로써 용이하다.
