@@ -23,3 +23,7 @@ OCR은 글자 검출 (text detection), 글자 인식 (text recognition), 정렬�
 자세한 내용은 AI Stages에서 확인해주세요.
 
 대회 플랫폼 AI Stages 링크: [https://stages.ai/en/competitions/315/](https://stages.ai/en/competitions/315/)
+
+# Data-Centric AI 개요
+
+OCR: 이미지 내 문자를 인식
