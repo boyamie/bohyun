@@ -24,6 +24,27 @@ OCR은 글자 검출 (text detection), 글자 인식 (text recognition), 정렬�
 
 대회 플랫폼 AI Stages 링크: [https://stages.ai/en/competitions/315/](https://stages.ai/en/competitions/315/)
 
-# Data-Centric AI 개요
-
+## Data-Centric AI 개요
 OCR: 이미지 내 문자를 인식
+
+Al system = Code + Data
+![](https://i.imgur.com/bRFr5nY.png)
+![](https://i.imgur.com/mJpREY5.png)
+
+## Data-Centric AI의 중요성
+- Data-Centric AI, DMLR, DMOps, 데이터라벨링 가이드
+![](https://i.imgur.com/BBgy5re.png)
+![](https://i.imgur.com/KSwegcf.png)
+
+DMOps: Data Management Operations & Recipes
+![](https://i.imgur.com/Kb3JAl8.png)
+
+1. 좋은 데이터를 모으기 힘들다
+2. 라벨링 작업에 대한 명확한 정답이 없고 비용이 크다
+
+좋은 데이터란?
+![](https://i.imgur.com/yr7YoEM.png)
+"레이블 일관성"이 중요하다
+data quality + balance가 있어야 한다.
+
+## OCR Tasks
