@@ -47,4 +47,4 @@ DMOps: Data Management Operations & Recipes
 "레이블 일관성"이 중요하다
 data quality + balance가 있어야 한다.
 
-## OCR Tasks
+## OCR *Tasks
