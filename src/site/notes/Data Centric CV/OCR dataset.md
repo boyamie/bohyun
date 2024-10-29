@@ -108,3 +108,8 @@ One-to-Many: 0점
 이걸 하나의 값(scoring)으로 합쳐야하기 때문에 최종 수치는
 ![](https://i.imgur.com/o2GtLfC.png)
 recall과 precision의 조화평균을 구하게 된다.
+
+#### 예제를 통한 TIoU의 한계점
+![](https://i.imgur.com/WYbZj0b.png)
+
+## CLEval
