@@ -114,5 +114,23 @@ recall과 precision의 조화평균을 구하게 된다.
 
 ## CLEval
 글자 수 기반
-
 ![](https://i.imgur.com/QS7X71p.png)
+글자-level 평가다.
+글자 영역 위치 정보와 sequence로 부터 추정하는게 중요하다.
+![](https://i.imgur.com/uxxT3TO.png)
+![](https://i.imgur.com/BCLKega.png)
+글자 중심 위치를 구한 것이 PCC이다.
+![](https://i.imgur.com/qRL3nf4.png)
+정답 영역 기준이므로 Recall이라고 부를 수 있다.
+
+2개의 예측 영역이 있을 때,
+![](https://i.imgur.com/JfZaIWS.png)
+![](https://i.imgur.com/hmi3jli.png)
+![](https://i.imgur.com/qgOoRa5.png)
+이건 예측 영역 기준이므로 Precision이다.
+![](https://i.imgur.com/qx1cbWt.png)
+
+## Summary of metrics
+![](https://i.imgur.com/XXiMxRC.png)
+하나의 정량평가를 이용하지 않고 여러개의 정량평가를 이용하는 게 중요하다.
+정성평가도 함께 하면서 정량평가 방법이 이상한건 아닌지 의심해보아야한다.
