@@ -115,4 +115,4 @@ recall과 precision의 조화평균을 구하게 된다.
 ## CLEval
 글자 수 기반
 
-![](https://i.imgur.com/E78gmqq.png)
+![](https://i.imgur.com/QS7X71p.png)
