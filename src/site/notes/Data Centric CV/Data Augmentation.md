@@ -44,4 +44,4 @@ theta : 회전 각도 [radian]
     `v_rotated = rotate_mat @ v_centered`
    - 회전 후 원래 위치로 이동
     `res = v_rotated + anchor`
-   
+

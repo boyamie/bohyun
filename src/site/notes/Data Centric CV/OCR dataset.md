@@ -2,7 +2,6 @@
 {"dg-publish":true,"permalink":"/data-centric-cv/ocr-dataset/"}
 ---
 
-
 ![](https://i.imgur.com/tewbgju.png)
 대량의 합성데이터로 학습을 먼저한 뒤, 실제 데이터로 빈틈을 메꿔주는 hybrid방식이 있다.
 ![](https://i.imgur.com/mnZt6vY.png)
