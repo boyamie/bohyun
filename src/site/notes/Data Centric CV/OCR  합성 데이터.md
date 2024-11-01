@@ -37,4 +37,5 @@ plt.title("document w. bboxes")
   `cv2.getPerspectiveTransform`
 - 시점변환 행렬 M을 이용해 bbox 좌표를 변환하는 함수 구현
   [Lesson 4: Perspective projection · ssloy/tinyrenderer Wiki · GitHub](https://github.com/ssloy/tinyrenderer/wiki/Lesson-4:-Perspective-projection#homogeneous-coordinates)
-  
+
+데이터 생성 및 증강을 통해 더 다양한 데이터를 모델에게 학습시킨다면 적은 데이터로도 좋은 성능을 얻을 수 있을 것 !
