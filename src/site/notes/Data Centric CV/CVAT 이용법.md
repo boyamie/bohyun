@@ -35,7 +35,6 @@ label을 만들고 continue를 눌러준다.
 ![](https://i.imgur.com/6dHZnpL.png)
 그러면 task가 생성된다.
 ![](https://i.imgur.com/bkUsLId.png)
-
 영수증 이미지에서 글자만 검출하는 작업이기 때문에 Rectangle과 Polygon 중 하나를 선택하기로 했는데 영수증이 기울어지거나 구겨진 경우가 있어서 polygon을 선택했다.
 
 - Rectangle은 글자 영역을 사각형으로 쉽게 지정할 수 있으며, 직사각형 형태로 라벨링할 수 있는 경우 간단하게 사용
