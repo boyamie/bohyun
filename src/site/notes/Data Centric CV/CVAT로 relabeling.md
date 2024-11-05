@@ -45,3 +45,5 @@ Draw new polygon을 눌러서 원하는 points 개수를 설정해준다.
 기울어진 글자의 경우 10points를 정도를 선택하면 글자를 정확하게 annotation할 수 있다!
 ![](https://i.imgur.com/m8ARaHF.png)
 자 이렇게 한 프레임이 끝났으면 다음 프레임으로 넘어간다.
+![](https://i.imgur.com/uC481Mf.png)
+CVAT의 가장 큰 장점은 이렇게 기울어진 글자에도 정확히 bbox를 만들 수 있다는 점이다.
