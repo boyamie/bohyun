@@ -37,8 +37,11 @@ label을 만들고 continue를 눌러준다.
 ![](https://i.imgur.com/bkUsLId.png)
 여기서 아래쪽의 `Job #1441474` 를 누르면 작업을할 수 있는 환경으로 이동한다.
 
-내가 annotation 작업에 사용할 tool은 왼쪽의 Draw new rectangle이다.
 annotation작업을 할 때 가장 중요한건 bbox를 겹치지 않게 해야 한다는 점이다.
-
-
-
+![](https://i.imgur.com/cPzeUNx.png)
+Draw new polygon을 눌러서 원하는 points 개수를 설정해준다.
+여기서 주의할 점은 track이 아닌 shape를 눌러줘서 이 프레임에서만 작업해줘야 한다는 점이다.
+(실제로 나는 처음에 track으로 해봤다가 다시 delete하고 재작업을 하는 뼈아픈 경험을 했다.)
+기울어진 글자의 경우 10points를 정도를 선택하면 글자를 정확하게 annotation할 수 있다!
+![](https://i.imgur.com/m8ARaHF.png)
+자 이렇게 한 프레임이 끝났으면 다음 프레임으로 넘어간다.
