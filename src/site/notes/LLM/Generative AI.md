@@ -53,3 +53,9 @@ LLM의 작동 원리, Reinforcement Learning from Human Feedback (RLHF)의 개�
     - 코드, HTML, 테이블 데이터 등 다양한 데이터를 포함해야 합니다. 
     - 코퍼스의 품질을 정량화할 수 있는 지표가 있는지 찾아봅시다.
 
+#### Instruction Tuning
+SFT: Supervised Fine-Tuning
+DPO: Direct Preference Optimization
+
+파라미터 수가 많은 Large Language Models(LLM)을 효율적으로 학습할 수 있는 Parameter Efficient Fine-Tuning(PEFT) 방법론을 탐색
+LLM의 발전으로 모델 크기가 증가함에 따라, 기존 학습 방법론의 가진 한계점을 살펴봄
