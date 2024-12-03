@@ -60,3 +60,22 @@ DPO: Direct Preference Optimization
 파라미터 수가 많은 Large Language Models(LLM)을 효율적으로 학습할 수 있는 Parameter Efficient Fine-Tuning(PEFT) 방법론을 탐색
 LLM의 발전으로 모델 크기가 증가함에 따라, 기존 학습 방법론의 가진 한계점을 살펴봄
 PEFT의 다양한 접근 방식인 Adapter, Prefix Tuning, Prompt Tuning, 그리고 LoRA를 통해 모델의 성능을 최적화하는 전략과 기법을 심층적으로 다룸
+
+- 최근에 제안된 새로운 방법론들은 기존 PEFT 방법들을 어떻게 활용하고 있을까요?
+
+2024.12.03
+- [x] 멘토링
+
+아이클리어는 모든 리뷰가 오픈되어있음
+리부탈: 이니셜한 리뷰가 온다. 리뷰어들이 니 점수는 이 점수고.. 이유는 ~이다.
+![](https://i.imgur.com/r14rbvW.png)
+결국 아이클레어에서 만점을 받음 ㄷㄷ
+
+#### runway
+Frames
+풍을 만들어준다.. 미장셴 풍
+메이크업 풍
+스타일리스틱한게 들어갈 수 있다
+컨텐츠는 이미 정해져있는 상황에서 ...~상황이였는데
+이건 
+
