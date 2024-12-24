@@ -31,3 +31,16 @@ CVPR에 나온 논문
 진짜 멋있다ㅏ... 코드도 있고 사용 예시도 있다.
 pip install 한다음에 프롬프트 넣어서 비디오 생성이 된다고 한다!
 
+#### 조경현 교수님의 글..
+![](https://i.imgur.com/0g88MKK.png)
+
+#### Dao-AILab
+Flash attention..
+Tri-Dao 교수님 블로그 !
+
+#### 세번의 실패 The Bitter Lesson
+1. feature 추출을 사람이 함(ML의 등장..)
+2. feature도 NN이 추출함
+3. 트랜스포머 사용하면서 모든 아키텍처 싹 빼고 데이터 많이 주면 되던데? 라고 됨
+   
+researcher들이 3번의 실수를.. 앞으로도 이러지 않을까..
