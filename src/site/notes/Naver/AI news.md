@@ -12,3 +12,8 @@ o3 preview가 나왔다
 Work with apps
 
 #### Google Whisk
+subject: 할아버지 사진
+디테일이 유지됨
+Scene: 고를 수 있고 생성도 가능
+style: 빈티지 애니 스타일
+
