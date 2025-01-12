@@ -4,8 +4,7 @@
 
 Hi there! I'm Bohyun Kim.
 ![](https://i.imgur.com/QgQEYB7.png)
-I love AI, especially **depth estimation**. 
-Giving robots the ability to see the world in 3D is crucial task for AI! 😎
+I love ComputerVision, especially generative model.
 ![](https://i.imgur.com/yavo3el.png)
 
 <div align="center">
