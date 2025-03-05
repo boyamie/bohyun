@@ -28,3 +28,13 @@ ControlNet은 end-to-end nn architecture인데 사전 훈련된 text-to-image di
 ControlNet: 다양한 conditioning input을 통해 Stable Diffusion을 control할 수 있다. conditioning input에는 Canny edge, Hough line, user scribble, human key points, segmentation maps, shape nnormals, depths등이 포함된다.
 single conditioning image를 사용해서 접근 방식에 테스트한다. textprompt 있을 때 없을 때 모두 포함. 
 각 모델 구성 요소의 기여도를 조사하기 위해 ablative study(제거 실험)을 수행한다. user연구를 통해 강력한 conditional image generation baseline과 비교한다.
+
+(1) ControlNet: add spatially localized input conditions to a pretrained text-to-image diffusion model via efficient finetuning.
+(2) control Stable diffusion(by pretrained ControlNets)
+(3) ablative experiments 소거 실험
+
+## Related Work
+### Finetuning Neural Networks
+continue training with 추가 training data. 추가 데이터 문제는 overfitting, mode collapse, catastrophic forgetting.
+#### HyperNetwork
+하이퍼 네트워크는 NLP에서 시작됨. 작은 recurrent nn(순환신경망)이 더 큰 가중치에 영향을 
