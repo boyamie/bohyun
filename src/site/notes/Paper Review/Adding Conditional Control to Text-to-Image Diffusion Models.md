@@ -37,4 +37,7 @@ single conditioning image를 사용해서 접근 방식에 테스트한다. text
 ### Finetuning Neural Networks
 continue training with 추가 training data. 추가 데이터 문제는 overfitting, mode collapse, catastrophic forgetting.
 #### HyperNetwork
-하이퍼 네트워크는 NLP에서 시작됨. 작은 recurrent nn(순환신경망)이 더 큰 가중치에 영향을 
+하이퍼 네트워크는 NLP에서 시작됨. 작은 recurrent nn(순환신경망)이 더 큰 신경망의 가중치에 영향을 미치도록 훈련하는 것이 목표다.
+
+#### Adapter
+NLP에선 사전훈련된 트랜스포머 모델을 다른 task에 커스터마이징 하기 위해서 새로운 모듈 레이어를 embedding하는데 사용한다. 
