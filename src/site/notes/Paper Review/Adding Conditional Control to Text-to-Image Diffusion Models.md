@@ -41,3 +41,7 @@ continue training with 추가 training data. 추가 데이터 문제는 overfitt
 
 #### Adapter
 NLP에선 사전훈련된 트랜스포머 모델을 다른 task에 커스터마이징 하기 위해서 새로운 모듈 레이어를 embedding하는데 사용한다. 
+CV에선 adapter는 incremental learning(점진적 학습)과 domain adaption에 사용된다. CLIP과 함께 사용된다. 다양한 task로 사전훈련된 backbone 모델을 transfer하기 위해서이다. 최근엔 adapter가 vision transformer에서 
+#### Additive Learning
+
+#### Low-Rank Adaptation(LoRA)
