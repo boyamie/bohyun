@@ -82,3 +82,8 @@ ours는 image pixel보다 ==scene layout==을 편집하는 것을 목표로 한�
 #### LLM-grounded Diffusion
 LMD는 text prompt y가 주어졌을 때 image x0을 생성하는 것을 포함한 text-to-image generation setting에 집중한다.
 two stage: text-grounded layout generation -> layout-grounded image generation
+
+#### LLM-based Layout Generation
+generate the layout of an image: embed the input text prompt y into a template and queries and LLM 
+
+![](https://i.imgur.com/cOApwqk.png)
