@@ -84,6 +84,27 @@ LMD는 text prompt y가 주어졌을 때 image x0을 생성하는 것을 포함�
 two stage: text-grounded layout generation -> layout-grounded image generation
 
 #### LLM-based Layout Generation
-generate the layout of an image: embed the input text prompt y into a template and queries and LLM 
+generate the layout of an image: embed the input text prompt y into a template and queries and LLM
+LLM한테 완성을 요청한다.
+**Layout representation**
+LMD의 layout은 두가지 구성요소가 있다.
+1) 각각 foreground object에 대해 captioned bounding box
+2) 이미지 배경을 설명하는 simple, concise caption(이미지에 나하나면 안되는 내용에 대한 negative prompt를 포함)
+   negative prompt는 layout 제한이 없을 때는 비어있다.
 
+![](https://i.imgur.com/n7oRazg.png)
+LLM에 대한 text instruction은 두 파트로 구성된다.
+1. Task specification: 언급된 object에 대한 bounding box를 생성하고 scene을 설명하는 background prompt를 생성한다.
+2. Supporting details: 이미지 크기 512x512.. 등 합리적 추정
+![](https://i.imgur.com/CDsmlVL.png)
+LLM에 수동으로 정리된 예제를 제공
+예제로 레이아웃 표현을 정확히 하고 모호성을 분산시키도록 preference를 제공
+정확한 layout control을 보장하기 위해서 예제 설계에서 두 가지 주요 원칙을 따른다.
+	1. 각 객체 instance는 single bounding box로 표현된다. prompt에서 사과 4개가 언급됐으면 각 캡션에 사과가 포함된 네 개의 상자를 포함시킨다.
+	2. 모든 foreground object가 layout-grounded image generator에 의해 통제될 수 있도록 배경 caption에 상자에 명시된 foreground object를 남기지 않는다.
+![](https://i.imgur.com/uUyoC3m.png)
+맥락 내 예제를 제공한 후에 LLM에 대한 완료를 요청한다. LLM완료에서 생성된 레이아웃은 구문으로 분석돼서 후속 이미지 생성 프로세스에 사용된다. 
+
+#### Layout-grounded Stable Diffusion
+instance-level control 제어를 방해함
 ![](https://i.imgur.com/cOApwqk.png)
