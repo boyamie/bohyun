@@ -28,6 +28,8 @@ multiview에서 consistent한 image를 생성하기 위해 density σ는 locati
 point -> 다양한 ray가 지난다 -> 지나는 빛의 방향에 따라 다양한 radiance를 가진다
 다양한 radience를 distribution으로 representation : NeRF !
 (c)에 point에서 radiance distribution이 보이는데 color(radiance)
+누적투영도
+
 
 ### Volume Rendering with Radiance Fields
 5D NeRF
@@ -55,12 +57,14 @@ NeRF의 input은 저차원이다. high resolution image도출을 위해 input을
 ![](https://i.imgur.com/X3eLrtU.png)
 γ(p)는 x에 속해있는 3 좌표에 대해 분해되어 사용된다. 
 이 과정은 d와도 동일하게 나타나며 L의 값은 사용자가 설정하는 값이다. 
-(논문에서는 γ(x)에 대해서는 L=10으로,γ(d)에 대해서는 L=4로 설정되었다고 한다.)
+(논문에서는 γ(x)에 대해서는 L=10으로,γ(d)에 대해서는 L=4로 설정되었다고 한다
+방향 자체가 가지고 있는 정보보다 
 
 Positional encoding에 대한 mapping은 Transformer에서 사용한 positional encoding과 비슷하지만 목적에서 차이가 있다. 
 Transformer의 경우는 model에게 token들의 순서에 대한 정보를 알려주지만 NeRF는 MLP가 고밀도 함수를 처리할수 있도록 input coordinate를 고차원의 공간으로 mapping하기 위해 사용된다. 
 ![](https://i.imgur.com/pjRzF9b.png)
 view dependent 기법과 positional encoding 기법을 적용했을 경우와 적용하지 않았을 경우에 대한 비교 사진이다.
+목적에서 차이가 있는데 세세한 표현을 살리기 위해 매핑을 해야지만 디테일한 정보를 살릴 수 있다. 0.1같은 작은 값들은 고차원으로 매핑해주면서 간격으로 벌려주는 점에서 차이가 있다.
 ### Hierarchical volume sampling
 N개의 ray로 분할 후 값을 얻어내는 rendering 기법은 비효율적이다. free space와 occluded된 부분은 결과값에 기여를 안하기 때문이다. 
 scene을 표현하기 위해 하나의 network를 사용하기보다는 coarse network와 fine network로 구분해 두 가지 network를 학습시킨다. 
@@ -93,3 +97,8 @@ NeRF On-the-go
 3. 불확실성 MLP G는 이러한 ray의 DINOv2 피쳐를 입력으로 사용하여 불확실성 β(r)를 생성 
 4. 세 가지 loss(오른쪽)가 G 및 NeRF 모델을 최적화하는 데 사용 
 5. 학습 프로세스는 색상이 있는 점선으로 표시된 대로 경사 흐름을 분리함으로써 용이하다.
+
+# Nerf: Representing scenes as neural radiance field for view synthesis
+#### Volume Rendering
+대응되는 픽셀의 고유 값을 ..?
+흡수되지 않고 살아남았을 확률
