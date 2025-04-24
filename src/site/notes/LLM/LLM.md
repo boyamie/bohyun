@@ -46,9 +46,7 @@ GPT3는 질문에 대해 following하는 방법은 없었다. 질문에 뒤에 �
 large scale language models..
 
 ![](https://i.imgur.com/cy31Cvw.png)
-
 ![](https://i.imgur.com/rT64016.png)
-
 ![](https://i.imgur.com/lSAexqg.png)
 
 Hallucination과 context understanding문제가 있다.
