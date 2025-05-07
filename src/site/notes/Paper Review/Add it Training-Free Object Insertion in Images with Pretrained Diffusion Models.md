@@ -5,7 +5,7 @@
 
 ## Introduction
 
-Object insertion into images based on textual instructions is a fundamental task in image editing that remains challenging despite recent advances in generative AI. The ability to naturally place objects within existing scenes requires understanding both the object properties and the scene context, including physical constraints, spatial relationships, and semantic plausibility - a concept known as "affordance."
+The ability to naturally place objects within existing scenes requires understanding both the object properties and the scene context, including physical constraints, spatial relationships, and semantic plausibility - a concept known as "affordance."
 
 The ADD-IT (Attention-Driven Diffusion for Image Translation) method addresses this challenge through a training-free approach that leverages pretrained diffusion models. Unlike existing methods that either require extensive task-specific fine-tuning or struggle with proper object placement, ADD-IT introduces techniques to balance the preservation of the original scene while seamlessly integrating new objects in semantically plausible locations.
 
