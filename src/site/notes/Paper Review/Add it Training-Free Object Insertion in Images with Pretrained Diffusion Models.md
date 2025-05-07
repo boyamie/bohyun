@@ -11,6 +11,26 @@ The ADD-IT (Attention-Driven Diffusion for Image Translation) method addresses t
 
 Developed by researchers from NVIDIA, Tel-Aviv University, and Bar-Ilan University, ADD-IT introduces three key components: weighted extended self-attention, structure transfer, and subject-guided latent blending. These components work together to maintain the structural coherence of the source image while allowing for detailed and contextually appropriate object insertion.
 
+textual instruction을 기반으로 image editing으로 object insertion task는 generative AI의 발전에도 불구하고 여전히 challenging하다. 기존 장면에 객체를 자연스럽게 배치하려면, 객체 자체의 특성뿐 아니라 장면의 맥락—즉 물리적 제약, 공간적 관계, 의미론적 타당성(이를 **“어포던스”**라고 부름)을 이해해야 합니다.
+
+**ADD-IT (Attention-Driven Diffusion for Image Translation)**는 이러한 문제를 해결하기 위해 고안된 **훈련이 필요 없는 방법**입니다. 이 방식은 사전 학습된 디퓨전 모델을 활용하며, 기존의 방식들과 달리 **과도한 태스크별 파인튜닝 없이도** 객체를 장면에 자연스럽게 삽입할 수 있습니다.
+
+ADD-IT는 **원본 장면의 구조를 유지하면서도 의미적으로 적절한 위치에 새로운 객체를 통합하는 기술**을 도입합니다. 이 기술은 NVIDIA, 텔아비브 대학교, 바르일란 대학교의 연구진에 의해 개발되었습니다.
+
+ADD-IT는 다음의 세 가지 핵심 구성 요소로 이루어져 있습니다:
+
+1. **가중 확장 셀프 어텐션 (weighted extended self-attention)**
+    
+2. **구조 전이 (structure transfer)**
+    
+3. **주제 유도 잠재 혼합 (subject-guided latent blending)**
+    
+
+이 세 가지 기술은 서로 결합되어, **이미지의 구조적 일관성을 유지하면서도 맥락에 적절한 정밀한 객체 삽입**을 가능하게 합니다.
+
+---
+
+다른 단락도 번역해드릴까요?
 ## Background and Related Work
 
 Current approaches to object insertion in images typically fall into two categories:
