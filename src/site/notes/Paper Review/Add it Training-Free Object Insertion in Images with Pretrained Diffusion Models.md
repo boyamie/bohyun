@@ -2,59 +2,47 @@
 {"dg-publish":true,"permalink":"/paper-review/add-it-training-free-object-insertion-in-images-with-pretrained-diffusion-models/"}
 ---
 
+NVIDIA, 텔아비브 대학교, 바르일란 대학교의 연구진에 의해 쓰여진 논문이다. ICLR 2025에 accept되었다!
+# Introduction
+textual instruction을 기반으로 image editing으로 object insertion task는 generative AI의 발전에도 불구하고 여전히 challenging하다. 기존 장면에 객체를 자연스럽게 배치하려면, object properties뿐 아니라 scene context도 이해해야 한다. 즉 물리적 제약, 공간적 관계, 의미론적 타당성("affordance"라는 개념)을 이해해야 한다.
 
-## Introduction
+ADD-IT (Attention-Driven Diffusion for Image Translation)는 이러한 문제를 해결하기 위해 고안된 training-free이다. 이 방식은 pretrained 디퓨전 모델을 활용한다. 기존의 방식들과 달리 task-specific fine-tuning 없이도 객체를 장면에 자연스럽게 삽입할 수 있다.
+ADD-IT는 original scene을 보존하면서 semantically plausible(적절한)위치에 새로운 object insertion하는 기술을 도입했다. 
 
-The ability to naturally place objects within existing scenes requires understanding both the object properties and the scene context, including physical constraints, spatial relationships, and semantic plausibility - a concept known as "affordance."
+1. weighted extended self-attention
+2. structure transfer
+3. subject-guided latent blending
+# Background and Related Work
 
-The ADD-IT (Attention-Driven Diffusion for Image Translation) method addresses this challenge through a training-free approach that leverages pretrained diffusion models. Unlike existing methods that either require extensive task-specific fine-tuning or struggle with proper object placement, ADD-IT introduces techniques to balance the preservation of the original scene while seamlessly integrating new objects in semantically plausible locations.
+현재 이미지 내 object insertion은 보통 두 가지 categories로 나뉜다.
 
-Developed by researchers from NVIDIA, Tel-Aviv University, and Bar-Ilan University, ADD-IT introduces three key components: weighted extended self-attention, structure transfer, and subject-guided latent blending. These components work together to maintain the structural coherence of the source image while allowing for detailed and contextually appropriate object insertion.
+1. pretrained text-to-image diffusion models
+    diffusion models이 가진 일반적인 지식을 활용한다. existing scenes 내에 새로운 객체를 정확하게 align하는 데 어려움이 있다.  
+    예시로는 **Prompt-to-Prompt**와 **SDEdit**이 있다. 이들은 객체 생성은 가능하지만 종종 implausible(비현실적) 위치에 객체를 배치하거나 original scene's integrity를 유지하는데 실패한다.
 
-textual instruction을 기반으로 image editing으로 object insertion task는 generative AI의 발전에도 불구하고 여전히 challenging하다. 기존 장면에 객체를 자연스럽게 배치하려면, 객체 자체의 특성뿐 아니라 장면의 맥락—즉 물리적 제약, 공간적 관계, 의미론적 타당성(이를 **“어포던스”**라고 부름)을 이해해야 합니다.
+2. Task-specific fine-tuned models
+    **InstructPix2Pix**나 **MagicBrush**와 같은 기법은 large image editing 데이터셋을 학습한다. 
+    이 방식은 그들의 training domain에서는 효과적이지만, open-world object insertion에는 일반화가 어렵고 incorrect object placements나 시각적 artifacts가 발생할 수 있다.
 
-**ADD-IT (Attention-Driven Diffusion for Image Translation)**는 이러한 문제를 해결하기 위해 고안된 **훈련이 필요 없는 방법**입니다. 이 방식은 사전 학습된 디퓨전 모델을 활용하며, 기존의 방식들과 달리 **과도한 태스크별 파인튜닝 없이도** 객체를 장면에 자연스럽게 삽입할 수 있습니다.
+두 approach 모두 "affordance" 문제에 한계를 보인다.
+affordance: 객체가 scene 내에서 where 그리고 how 자연스럽게 놓여야 하는가를 이해하는 능력
+이는 source image의 structure에 대한 adherence(충실함)과 new element의 incorporate(삽입) 자유도를 동시에 만족시키는 데 어려움이 있기 때문이다.
 
-ADD-IT는 **원본 장면의 구조를 유지하면서도 의미적으로 적절한 위치에 새로운 객체를 통합하는 기술**을 도입합니다. 이 기술은 NVIDIA, 텔아비브 대학교, 바르일란 대학교의 연구진에 의해 개발되었습니다.
+# The ADD-IT Approach
 
-ADD-IT는 다음의 세 가지 핵심 구성 요소로 이루어져 있습니다:
-
-1. **가중 확장 셀프 어텐션 (weighted extended self-attention)**
-    
-2. **구조 전이 (structure transfer)**
-    
-3. **주제 유도 잠재 혼합 (subject-guided latent blending)**
-    
-
-이 세 가지 기술은 서로 결합되어, **이미지의 구조적 일관성을 유지하면서도 맥락에 적절한 정밀한 객체 삽입**을 가능하게 합니다.
-
----
-
-다른 단락도 번역해드릴까요?
-## Background and Related Work
-
-Current approaches to object insertion in images typically fall into two categories:
-
-1. **Methods using pretrained text-to-image diffusion models**: These leverage the general knowledge of diffusion models but often struggle with aligning new objects properly within existing scenes. Examples include Prompt-to-Prompt and SDEdit, which can produce objects but frequently place them in implausible locations or fail to maintain the original scene's integrity.
-    
-2. **Task-specific fine-tuned models**: Approaches like InstructPix2Pix and MagicBrush train on large datasets of image editing examples. While effective within their training domain, these methods often lack generalization capability for open-world object insertion and can produce artifacts or incorrect object placements.
-    
-
-Both approach types struggle with the concept of "affordance" - understanding where and how objects should naturally fit within a scene. This limitation stems from difficulties in balancing adherence to the source image's structure while allowing sufficient freedom to incorporate new elements.
-
-## The ADD-IT Approach
-
-ADD-IT introduces a training-free pipeline that leverages pretrained diffusion models, particularly Stable Diffusion, to perform object insertion without additional training. The method consists of three main components that work together to achieve high-quality object insertion while maintaining scene coherence:
+ADD-IT은 Stable Diffusion과 같은 pretrained diffusion models을 활용하여 별도의 additional training없이 object insertion을 수행하는 training-free pipeline을 제안한다.
+scene coherence(일관성)을 유지하면서 high-quality object insertion을 위해서 다음 세가지 주요한 방법이 있다.
 
 1. Weighted Extended Self-Attention (WESA)
 2. Structure Transfer
 3. Subject-Guided Latent Blending
 
-For real images, ADD-IT includes an inversion step to reconstruct the image in the latent space of the diffusion model. The method is applicable to both real and AI-generated images and supports iterative, step-by-step image modifications.
+실제(real) 이미지의 경우 디퓨전 모델의 latent space상에서 이미지를 복원하는 inversion step을 거친다.
+ADD-IT는 real image와 AI-generated image 모두에 적용 가능하며 사용자 피드백을 반영해 step-by-step으로 image modification할 수 있는 기능도 지원한다.
 
-## Weighted Extended Self Attention
+# Weighted Extended Self Attention
 
-The core innovation in ADD-IT is the Weighted Extended Self-Attention (WESA) mechanism, which modifies how attention operates within the diffusion model. In standard diffusion models, cross-attention connects text prompts to image features, while self-attention allows different regions of an image to influence each other.
+ADD-IT의 core innovation는 Weighted Extended Self-Attention (WESA) mechanism이다. diffusion model 내에서 attention이 작동하는 방식을 수정해서 text prompt와 원본 이미지의 정보를 동시에 활용하도록 확장한다. 기존 diffusion model에서의 attention은 cross-attention으로 text prompts to image features, while self-attention allows different regions of an image to influence each other.
 
 WESA extends this by integrating information from both the source image and the text prompt through weighted attention. The mechanism is formulated as:
 
